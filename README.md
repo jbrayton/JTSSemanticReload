@@ -1,7 +1,7 @@
 JTSSemanticReload
 =================
 
-A category method on UITableViewController for calling "reloadData" while preserving semantic content offset.
+A category method on UITableView for calling "reloadData" while preserving semantic content offset.
 
 ## Why You’d Want This
 
@@ -27,7 +27,7 @@ Here's an example implementation:
 ```objc
 - (void)someDataModelDidUpdate:(id)model andStuff:(id)stuff {
 
-  [self JTS_reloadDataPreservingSemanticContentOffset:^id(NSIndexPath *indexPathPriorToReload, UITableViewCell *cellPriorToReload) {
+  [self.tableView JTS_reloadDataPreservingSemanticContentOffset:^id(NSIndexPath *indexPathPriorToReload, UITableViewCell *cellPriorToReload) {
     return (SomeTweet *)[cellPriorToReload tweet];
   } pathForItemBlock:^NSIndexPath *(id dataSourceItem) {
     return [self.tweetController indexPathForTweet:(SomeTweet *)dataSourceItem];
