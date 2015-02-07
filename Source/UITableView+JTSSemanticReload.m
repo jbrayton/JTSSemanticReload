@@ -129,6 +129,10 @@
                     newOffset.y = contentHeight + contentInsets.bottom - visibleHeight;
                 }
                 
+                if (self.tableHeaderView) {
+                    newOffset.y -= self.tableHeaderView.bounds.size.height;
+                }
+                
                 [self setContentOffset:newOffset];
                 
             }
