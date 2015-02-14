@@ -54,6 +54,14 @@
     
     NSArray *visibleCells = [self visibleCells];
     
+    CGFloat headerViewHeight = self.tableHeaderView.bounds.size.height;
+    BOOL tableViewHeaderHasNonZeroHeightAndWasVisible = NO;
+    if (headerViewHeight > 0) {
+        if (CGRectIntersectsRect(self.tableHeaderView.frame, self.bounds)) {
+            tableViewHeaderHasNonZeroHeightAndWasVisible = YES;
+        }
+    }
+    
     if (visibleCells.count == 0) {
         [self JTS_logThis:@"No visible cells. Will reloadData only."];
         [self reloadData];
@@ -112,6 +120,10 @@
                     // applied to the first cell.
                     UITableViewCell *targetCell = [self cellForRowAtIndexPath:targetIndexPath];
                     newOffset.y += targetCell.frame.origin.y;
+                }
+                
+                if (tableViewHeaderHasNonZeroHeightAndWasVisible) {
+                    newOffset.y -= headerViewHeight;
                 }
                 
                 // Fix possible overscrolling at the top or bottom.
