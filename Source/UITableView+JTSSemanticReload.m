@@ -98,9 +98,16 @@
             for (JTSSemanticReloadItem *reloadItem in visibleItems) {
                 NSIndexPath *indexPath = pathForItemBlock(reloadItem.dataSourceItem);
                 if (indexPath) {
-                    targetIndexPath = indexPath;
-                    targetReloadItem = reloadItem;
-                    break;
+                    // Sanity check in case pathForItemBlock() doesn't match what the table view has available
+                    NSInteger numberOfSections = self.numberOfSections;
+                    if (indexPath.section < numberOfSections) {
+                        NSInteger numberOfRows = [self numberOfRowsInSection:indexPath.section];
+                        if (indexPath.row < numberOfRows) {
+                            targetIndexPath = indexPath;
+                            targetReloadItem = reloadItem;
+                            break;
+                        }
+                    }
                 }
             }
             
