@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2153FE3F1F01962600A352A1 /* JTSSemanticReload.h in Headers */ = {isa = PBXBuildFile; fileRef = 2153FE3D1F01962600A352A1 /* JTSSemanticReload.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2172C54A1F01965B0079C73B /* UITableView+JTSSemanticReload.h in Headers */ = {isa = PBXBuildFile; fileRef = 2172C5481F01965B0079C73B /* UITableView+JTSSemanticReload.h */; };
+		2172C54A1F01965B0079C73B /* UITableView+JTSSemanticReload.h in Headers */ = {isa = PBXBuildFile; fileRef = 2172C5481F01965B0079C73B /* UITableView+JTSSemanticReload.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2172C54B1F01965B0079C73B /* UITableView+JTSSemanticReload.m in Sources */ = {isa = PBXBuildFile; fileRef = 2172C5491F01965B0079C73B /* UITableView+JTSSemanticReload.m */; };
 /* End PBXBuildFile section */
 
